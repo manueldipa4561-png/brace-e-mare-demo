@@ -41,11 +41,11 @@ From the public TheFork menu, last update shown as 17 February 2026:
 The site explicitly tells visitors that availability and prices can change and links to the live menu.
 
 ### Ratings / public reputation
-At research time (14 September 2026):
-- TheFork displayed **8.9/10** with **79 reviews**.
+At final verification on 14 September 2026:
+- The live TheFork menu page displayed **8.7/10 with 48 reviews**.
 - Restaurant Guru, updated August 2026, reported **Google 4.7/5 from 52 ratings**.
 
-Review counts are time-sensitive and are therefore presented only as contextual proof, not as permanent claims.
+The TheFork search result initially surfaced an older 8.9/79 snapshot; the demo was corrected to the live page value during QA. Review counts are time-sensitive.
 
 ### Opening hours used
 Restaurant Guru was the freshest detailed source found (updated 16 August 2026):
@@ -117,6 +117,26 @@ This avoids a generic restaurant template and gives the demo a recognizable iden
 - Reduced-motion support
 - Progressive-enhancement reveal animations: content remains visible if JS is unavailable
 - Netlify security headers
+
+## Responsive QA
+
+Rendered locally in Chromium using the actual HTML/CSS/JS at:
+
+`320, 360, 375, 390, 430, 768, 1024, 1440 px`
+
+Checks completed:
+- no unintended horizontal overflow at any tested width
+- hero H1 does not overflow
+- internal anchor targets all resolve
+- mobile menu opens/closes correctly and Escape closes it
+- mobile action dock appears only at small-screen breakpoints
+- no browser console errors
+- no page errors
+- reduced-motion mode leaves all content visible
+- JS-disabled test at 390 px leaves all reveal content visible
+- visual screenshots inspected at 320, 768 and 1440 px
+
+The site should still receive one final QA pass on the actual Netlify URL after deployment because hosting, headers and external destinations can only be fully validated there.
 
 ## Intentionally omitted
 
